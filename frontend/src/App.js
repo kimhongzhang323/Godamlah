@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './Layout'; // Import the Layout component
+
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("/api/data")
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
-  return (
-    <div >
-      <h1 >{message}</h1>
-    </div>
-  );
+ return (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Layout />} />
+        <Route index element={<Dashboard />} />
+    </Routes>
+  </Router>
+ )
 }
 
 export default App;
