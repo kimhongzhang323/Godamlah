@@ -49,7 +49,36 @@ const Header = () => {
                                 <Popover.Panel className="absolute right-0 z-10 mt-2 w-80 bg-white shadow-lg ring-1 ring-black ring-opacity-5 rounded-sm">
                                     <div className="p-4">
                                         <h3 className="text-lg font-medium text-gray-900">Notifications</h3>
-                                        {/* Notifications content */}
+                                        <ul className="mt-2 space-y-2">
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">Unauthorized access attempt detected</p>
+                                                    <p className="text-xs text-gray-500">5 minutes ago</p>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-yellow-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">Malware scan completed, 3 threats removed</p>
+                                                    <p className="text-xs text-gray-500">15 minutes ago</p>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">Password changed successfully</p>
+                                                    <p className="text-xs text-gray-500">30 minutes ago</p>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-green-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">All systems running smoothly</p>
+                                                    <p className="text-xs text-gray-500">1 hour ago</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </Popover.Panel>
                             </Transition>
