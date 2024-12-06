@@ -2,17 +2,19 @@ import React from 'react';
 import { FaRegBell } from "react-icons/fa";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import 'frontend/src/Dashboard.css'; // Import the CSS file
+import SecurityDashboardBarChart from 'frontend/src/components/barchart.jsx'; // Import the Bar Chart component
+import UserActivityBumpChart from 'frontend/src/components/linegraph.jsx'; // Import the Bump Chart component
 
 export default function Dashboard() {
     const alerts = [
         { id: 1, message: "Protection component disabled", devices: 3 },
         { id: 2, message: "Dangerous URL", devices: 1 },
         { id: 3, message: "Suspicious user activity", devices: 1 },
-        { id: 4, message: "Malware detected", devices: 4 },
-        { id: 5, message: "Unusual traffic", devices: 2 },
-        { id: 6, message: "Unusual traffic", devices: 2 },
-        { id: 7, message: "Unusual traffic", devices: 2 },
-        { id: 8, message: "Unusual traffic", devices: 2 },
+        { id: 4, message: "Protection component disabled", devices: 3 },
+        { id: 5, message: "Dangerous URL", devices: 1 },
+        { id: 6, message: "Suspicious user activity", devices: 1 },
+        { id: 7, message: "Protection component disabled", devices: 3 },
+        { id: 8, message: "Dangerous URL", devices: 1 },
     ];
 
     const unresolvedAlerts = alerts.length; // Calculate unresolved alerts
@@ -57,10 +59,16 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className="w-full lg:w-1/2 max-h-96 overflow-y-auto custom-scrollbar p-4">
-                    {/* Placeholder for the graph */}
-                    <div className="h-full bg-gray-200 flex items-center justify-center">
-                        <span>Graph goes here</span>
-                    </div>
+                    <SecurityDashboardBarChart />
+                </div>
+            </div>
+            <div className="mt-4 p-4 max-h-96 overflow-y-auto custom-scrollbar">
+                <div className="flex justify-between items-center">
+                    <h1 className="text-xl">User Activity</h1>
+                    <button className="text-blue-500 hover:underline">View All</button>
+                </div>
+                <div className="h-96">
+                    <UserActivityBumpChart />
                 </div>
             </div>
         </>
