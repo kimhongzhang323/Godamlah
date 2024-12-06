@@ -4,22 +4,25 @@ import { HiOutlineBell, HiOutlineSearch } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
+// Import the profile photo
+import profilePhoto from 'frontend/asset/new-profile-picture-collection-bubu-and-dudu-v0-kvvrhw2mof1d1.png';
+
 const Header = () => {
     const navigate = useNavigate();
 
     return (
         <header className="flex justify-between items-center p-4 bg-white shadow">
             <div className="relative flex items-center">
-				<HiOutlineSearch 
-					fontSize={20} 
-					className="text-gray-400 absolute top-1/2 left-3 transform -translate-y-1/2" 
-				/>
-				<input
-					type="text"
-					placeholder="Search..."
-					className="text-sm focus:outline-none active:outline-none border border-gray-300 w-[24rem] h-10 pl-11 pr-4 rounded-sm"
-				/>
-			</div>
+                <HiOutlineSearch 
+                    fontSize={20} 
+                    className="text-gray-400 absolute top-1/2 left-3 transform -translate-y-1/2" 
+                />
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="text-sm focus:outline-none active:outline-none border border-gray-300 w-[24rem] h-10 pl-11 pr-4 rounded-sm"
+                />
+            </div>
 
             <div className="flex items-center gap-2 mr-2">
                 
@@ -44,41 +47,11 @@ const Header = () => {
                                 leaveTo="opacity-0 translate-y-1"
                             >
                                 <Popover.Panel className="absolute right-0 z-10 mt-2 w-80 bg-white shadow-lg ring-1 ring-black ring-opacity-5 rounded-sm">
-									<div className="p-4">
-										<h3 className="text-lg font-medium text-gray-900">Notifications</h3>
-										<ul className="mt-2 space-y-2">
-											<li className="flex items-start">
-												<span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
-												<div className="flex-1">
-													<p className="text-sm text-gray-700">Unauthorized access attempt detected</p>
-													<p className="text-xs text-gray-500">5 minutes ago</p>
-												</div>
-											</li>
-											<li className="flex items-start">
-												<span className="flex-shrink-0 h-2 w-2 rounded-full bg-yellow-500 mt-1.5 mr-3"></span>
-												<div className="flex-1">
-													<p className="text-sm text-gray-700">Malware scan completed, 3 threats removed</p>
-													<p className="text-xs text-gray-500">15 minutes ago</p>
-												</div>
-											</li>
-											<li className="flex items-start">
-												<span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
-												<div className="flex-1">
-													<p className="text-sm text-gray-700">Password changed successfully</p>
-													<p className="text-xs text-gray-500">30 minutes ago</p>
-												</div>
-											</li>
-											<li className="flex items-start">
-												<span className="flex-shrink-0 h-2 w-2 rounded-full bg-green-500 mt-1.5 mr-3"></span>
-												<div className="flex-1">
-													<p className="text-sm text-gray-700">All systems running smoothly</p>
-													<p className="text-xs text-gray-500">1 hour ago</p>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</Popover.Panel>
-
+                                    <div className="p-4">
+                                        <h3 className="text-lg font-medium text-gray-900">Notifications</h3>
+                                        {/* Notifications content */}
+                                    </div>
+                                </Popover.Panel>
                             </Transition>
                         </>
                     )}
@@ -88,10 +61,10 @@ const Header = () => {
                         <Menu.Button className="ml-2 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-neutral-400">
                             <span className="sr-only">Open user menu</span>
                             <div
-                                className="h-10 w-10 rounded-full bg-sky-500 bg-cover bg-no-repeat bg-center"
-                                style={{ backgroundImage: 'url("https://source.unsplash.com/80x80?face")' }}
+                                className="h-10 w-10 rounded-full bg-cover bg-no-repeat bg-center"
+                                style={{ backgroundImage: `url(${profilePhoto})` }}
                             >
-                                <span className="sr-only">Marc Backes</span>
+                                <span className="sr-only">User Profile</span>
                             </div>
                         </Menu.Button>
                     </div>
