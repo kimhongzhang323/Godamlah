@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 CORS(app)
 bcrypt = Bcrypt(app)
 
-with open('key.json', 'r') as config_file:
+with open('secretkey/key.json', 'r') as config_file:
     skey = json.load(config_file)
     app.config['SECRET_KEY'] = skey['SECRET_KEY']
 
@@ -59,7 +59,8 @@ def login():
         "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)
     }, app.config['SECRET_KEY'], algorithm="HS256")
 
-    return jsonify({"token": token}), 200
+    return jsonify({"token": token,"message": "Welcome to the dashboard"}), 200
+
 
 # Protected route (requires authentication)
 @app.route('/protected', methods=['GET'])
