@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegBell } from "react-icons/fa";
 import { IoAlertCircleOutline } from "react-icons/io5";
-import '../Dashboard.css'; // Import the CSS file
-import SecurityDashboardBarChart from '../components/barchart.jsx'; // Import the Bar Chart component
-import UserActivityBumpChart from '../components/linegraph.jsx'; // Import the Bump Chart component
+import '../Dashboard.css'; // Ensure this file exists
+import { useNavigate } from 'react-router-dom'; 
+import SecurityDashboardBarChart from '../components/barchart.jsx';
+import UserActivityBumpChart from '../components/linegraph.jsx';
 
-export default function Dashboard() {
-    const alerts = [
+const Dashboard = () => {
+    const navigate = useNavigate();
+    const [alerts, setAlerts] = useState([
         { id: 1, message: "Protection component disabled", devices: 3 },
         { id: 2, message: "Dangerous URL", devices: 1 },
         { id: 3, message: "Suspicious user activity", devices: 1 },
@@ -15,9 +17,22 @@ export default function Dashboard() {
         { id: 6, message: "Suspicious user activity", devices: 1 },
         { id: 7, message: "Protection component disabled", devices: 3 },
         { id: 8, message: "Dangerous URL", devices: 1 },
-    ];
+    ]);
 
-    const unresolvedAlerts = alerts.length; // Calculate unresolved alerts
+    const unresolvedAlerts = alerts.length;
+
+    const handleSelectChange = (event, id) => {
+        const action = event.target.value;
+
+        if (action === 'resolve') {
+            // Redirect to the chat page
+            navigate(`/chat/${id}`);
+        } else if (action === 'ignore') {
+            console.log(`Alert ${id} ignored.`);
+        } else if (action === 'snooze') {
+            console.log(`Alert ${id} snoozed.`);
+        }
+    };
 
     return (
         <>
@@ -27,9 +42,7 @@ export default function Dashboard() {
             <div className="mt-4 flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/2 max-h-96 overflow-y-auto custom-scrollbar p-4">
                     <div className="flex flex-row items-center">
-                        <div>
-                            <FaRegBell fontSize={30} />
-                        </div>
+                        <FaRegBell fontSize={30} />
                         <div className="flex flex-col ml-3">
                             <h1 className="text-xl mt-4 text-gray-500">Alerts to resolve</h1>
                             <p className="text-2xl font-bold">{unresolvedAlerts}</p>
@@ -45,7 +58,12 @@ export default function Dashboard() {
                                             <span>{alert.message}</span>
                                         </div>
                                         <span className="text-sm text-blue-500 mr-4">{alert.devices} devices</span>
-                                        <select className="p-1 border border-gray-300 rounded" aria-label="Alert Action">
+                                        <select
+                                            className="p-1 border border-gray-300 rounded"
+                                            aria-label="Alert Action"
+                                            onChange={(e) => handleSelectChange(e, alert.id)}
+                                        >
+                                            <option value="">Select action</option>
                                             <option value="resolve">Resolve</option>
                                             <option value="ignore">Ignore</option>
                                             <option value="snooze">Snooze</option>
@@ -73,4 +91,6 @@ export default function Dashboard() {
             </div>
         </>
     );
-}
+};
+
+export default Dashboard;

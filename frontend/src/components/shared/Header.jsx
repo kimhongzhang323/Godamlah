@@ -46,24 +46,24 @@ const Header = () => {
                                         <h3 className="text-lg font-medium text-gray-900">Notifications</h3>
                                         <ul className="mt-2 space-y-2">
                                             <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">New comment on your post</p>
-                                                    <p className="text-xs text-gray-500">2 minutes ago</p>
+                                                    <p className="text-sm text-gray-700">Your meeting is scheduled for 3 PM</p>
+                                                    <p className="text-xs text-gray-500">5 minutes ago</p>
                                                 </div>
                                             </li>
                                             <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">New follower</p>
-                                                    <p className="text-xs text-gray-500">10 minutes ago</p>
+                                                    <p className="text-sm text-gray-700">You received a message from Alex</p>
+                                                    <p className="text-xs text-gray-500">15 minutes ago</p>
                                                 </div>
                                             </li>
                                             <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">New like on your photo</p>
-                                                    <p className="text-xs text-gray-500">30 minutes ago</p>
+                                                    <p className="text-sm text-gray-700">System update completed</p>
+                                                    <p className="text-xs text-gray-500">1 hour ago</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -77,7 +77,7 @@ const Header = () => {
                     <div>
                         <Menu.Button className="flex items-center">
                             <div
-                                className="h-10 w-10 rounded-full bg-cover bg-no-repeat bg-center"      
+                                className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"
                             >
                                 <span className="sr-only">User Profile</span>
                             </div>
@@ -141,3 +141,4 @@ const Header = () => {
 };
 
 export default Header;
+        
