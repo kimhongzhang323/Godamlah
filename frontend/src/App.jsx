@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Layout from 'frontend/src/components/shared/Layout.jsx';
-import Dashboard from 'frontend/src/pages/Dashboard.jsx';
+import Layout from '../src/components/shared/Layout.jsx';
+import Dashboard from '../src/pages/Dashboard.jsx';
 
 
 function App() {

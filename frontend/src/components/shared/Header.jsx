@@ -4,9 +4,6 @@ import { HiOutlineBell, HiOutlineSearch } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
-// Import the profile photo
-import profilePhoto from 'frontend/asset/new-profile-picture-collection-bubu-and-dudu-v0-kvvrhw2mof1d1.png';
-
 const Header = () => {
     const navigate = useNavigate();
 
@@ -23,9 +20,7 @@ const Header = () => {
                     className="text-sm focus:outline-none active:outline-none border border-gray-300 w-[24rem] h-10 pl-11 pr-4 rounded-sm"
                 />
             </div>
-
             <div className="flex items-center gap-2 mr-2">
-                
                 <Popover className="relative">
                     {({ open }) => (
                         <>
@@ -53,29 +48,22 @@ const Header = () => {
                                             <li className="flex items-start">
                                                 <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">Unauthorized access attempt detected</p>
-                                                    <p className="text-xs text-gray-500">5 minutes ago</p>
+                                                    <p className="text-sm text-gray-700">New comment on your post</p>
+                                                    <p className="text-xs text-gray-500">2 minutes ago</p>
                                                 </div>
                                             </li>
                                             <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-yellow-500 mt-1.5 mr-3"></span>
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">Malware scan completed, 3 threats removed</p>
-                                                    <p className="text-xs text-gray-500">15 minutes ago</p>
+                                                    <p className="text-sm text-gray-700">New follower</p>
+                                                    <p className="text-xs text-gray-500">10 minutes ago</p>
                                                 </div>
                                             </li>
                                             <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-red-500 mt-1.5 mr-3"></span>
                                                 <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">Password changed successfully</p>
+                                                    <p className="text-sm text-gray-700">New like on your photo</p>
                                                     <p className="text-xs text-gray-500">30 minutes ago</p>
-                                                </div>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-green-500 mt-1.5 mr-3"></span>
-                                                <div className="flex-1">
-                                                    <p className="text-sm text-gray-700">All systems running smoothly</p>
-                                                    <p className="text-xs text-gray-500">1 hour ago</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -87,11 +75,9 @@ const Header = () => {
                 </Popover>
                 <Menu as="div" className="relative">
                     <div>
-                        <Menu.Button className="ml-2 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-neutral-400">
-                            <span className="sr-only">Open user menu</span>
+                        <Menu.Button className="flex items-center">
                             <div
-                                className="h-10 w-10 rounded-full bg-cover bg-no-repeat bg-center"
-                                style={{ backgroundImage: `url(${profilePhoto})` }}
+                                className="h-10 w-10 rounded-full bg-cover bg-no-repeat bg-center"      
                             >
                                 <span className="sr-only">User Profile</span>
                             </div>
@@ -112,11 +98,11 @@ const Header = () => {
                                     <div
                                         onClick={() => navigate('/profile')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
-                                        Your Profile
+                                        Profile
                                     </div>
                                 )}
                             </Menu.Item>
@@ -125,8 +111,8 @@ const Header = () => {
                                     <div
                                         onClick={() => navigate('/settings')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
                                         Settings
@@ -136,12 +122,13 @@ const Header = () => {
                             <Menu.Item>
                                 {({ active }) => (
                                     <div
+                                        onClick={() => navigate('/logout')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
-                                        Sign out
+                                        Logout
                                     </div>
                                 )}
                             </Menu.Item>

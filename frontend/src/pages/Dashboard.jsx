@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaRegBell } from "react-icons/fa";
 import { IoAlertCircleOutline } from "react-icons/io5";
-import 'frontend/src/Dashboard.css'; // Import the CSS file
-import SecurityDashboardBarChart from 'frontend/src/components/barchart.jsx'; // Import the Bar Chart component
-import UserActivityBumpChart from 'frontend/src/components/linegraph.jsx'; // Import the Bump Chart component
+import '../Dashboard.css'; // Import the CSS file
+import SecurityDashboardBarChart from '../components/barchart.jsx'; // Import the Bar Chart component
+import UserActivityBumpChart from '../components/linegraph.jsx'; // Import the Bump Chart component
 
 export default function Dashboard() {
     const alerts = [
