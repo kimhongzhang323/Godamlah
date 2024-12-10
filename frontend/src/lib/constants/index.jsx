@@ -3,6 +3,9 @@ import {
 } from 'react-icons/hi'
 import { FaRegFileAlt } from "react-icons/fa";
 import { BsExclamationDiamond } from "react-icons/bs";
+import { MdDevices } from "react-icons/md";
+import { CiCircleInfo } from "react-icons/ci";
+import path from 'path';
 
 export const DASHBOARD_SIDEBAR_LINKS = [
 	{
@@ -28,6 +31,21 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 
         
     },
+	{
+		key: 'My Devices',
+		label: 'My Devices',
+		path: '/my-devices',
+		icon: <MdDevices />
+
+	},
+	{
+		key: 'About',
+		label: 'About',
+		path: '/about',
+		icon:<CiCircleInfo />
+
+	}
+
 
 
     

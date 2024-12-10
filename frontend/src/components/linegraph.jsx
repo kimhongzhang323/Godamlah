@@ -1,7 +1,7 @@
 // Importing the ResponsiveBump component
 import { ResponsiveBump } from '@nivo/bump';
 // Importing the data
-import { data } from 'frontend/src/lib/constants/userActivityMetrics.js';
+import { data } from '../lib/constants/userActivityMetrics.js';
 
 // Example Component for User Activity Bump Chart
 const UserActivityBumpChart = () => (
