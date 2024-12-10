@@ -4,6 +4,7 @@ import Layout from '../src/components/shared/Layout.jsx';
 import Dashboard from '../src/pages/Dashboard.jsx';
 import MyDevices from '../src/pages/myDevices.jsx';
 import Chat from '../src/pages/Chat.jsx';
+import About from '../src/pages/About.jsx';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
             </Route>
             <Route path='/chat' element={<Layout />}>
                 <Route index element={<Chat />} />
+            </Route>
+            <Route path='/about' element={<Layout />}>
+                <Route index element={<About />} />
             </Route>
 
           </Routes>

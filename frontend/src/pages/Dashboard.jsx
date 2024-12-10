@@ -26,7 +26,7 @@ const Dashboard = () => {
 
         if (action === 'resolve') {
             // Redirect to the chat page
-            navigate(`/chat/${id}`);
+            navigate(`/chat`);
         } else if (action === 'ignore') {
             console.log(`Alert ${id} ignored.`);
         } else if (action === 'snooze') {
