@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaRegBell } from "react-icons/fa";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import '../Dashboard.css'; // Ensure this file exists
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import SecurityDashboardBarChart from '../components/barchart.jsx';
 import UserActivityBumpChart from '../components/linegraph.jsx';
 
@@ -21,17 +21,34 @@ const Dashboard = () => {
 
     const unresolvedAlerts = alerts.length;
 
-    const handleSelectChange = (event, id) => {
+    const handleSelectChange = async (event, alert) => {
         const action = event.target.value;
 
         if (action === 'resolve') {
-            // Redirect to the chat page
-            navigate(`/chat`);
+            const aiResponse = await getAIResponse(alert.message);
+            navigate(`/chat`, { state: { alertMessage: alert.message, aiResponse } });
         } else if (action === 'ignore') {
-            console.log(`Alert ${id} ignored.`);
+            setAlerts(alerts.filter(a => a.id !== alert.id));
         } else if (action === 'snooze') {
-            console.log(`Alert ${id} snoozed.`);
+            console.log(`Alert ${alert.id} snoozed.`);
         }
+    };
+
+    const getAIResponse = async (message) => {
+        const fakeResponses = {
+            "Protection component disabled": 
+                "The protection component on the affected devices has been disabled, which could leave them vulnerable. Please re-enable the security feature by navigating to the protection settings in the device management dashboard. Alternatively, you can deploy a bulk policy to enforce protection settings.",
+            "Dangerous URL": 
+                "A potentially harmful URL was detected. Users are advised not to interact with the link. The URL has been flagged and quarantined. Please review the threat in the system log and consider blocking the domain at the network level for enhanced safety.",
+            "Suspicious user activity": 
+                "Unusual activity has been identified from one of your users. This could include abnormal login locations or repeated failed access attempts. I recommend resetting the user's credentials and enabling multi-factor authentication (MFA) for enhanced account security.",
+        };
+    
+        // Default response for unknown alerts
+        const defaultResponse = "An unknown alert has been triggered. Please investigate the issue manually for further details.";
+    
+        // Return the fake response based on the message or the default response
+        return fakeResponses[message] || defaultResponse;
     };
 
     return (
@@ -61,7 +78,7 @@ const Dashboard = () => {
                                         <select
                                             className="p-1 border border-gray-300 rounded"
                                             aria-label="Alert Action"
-                                            onChange={(e) => handleSelectChange(e, alert.id)}
+                                            onChange={(e) => handleSelectChange(e, alert)}
                                         >
                                             <option value="">Select action</option>
                                             <option value="resolve">Resolve</option>
