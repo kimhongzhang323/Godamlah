@@ -16,9 +16,9 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	},
 
     {
-        key: 'Reports',
-        label: 'Reports',
-        path: '/reports',
+        key: 'Report',
+        label: 'Report',
+        path: '/report',
 		icon: <FaRegFileAlt />
 
         

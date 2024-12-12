@@ -5,6 +5,7 @@ import Dashboard from '../src/pages/Dashboard.jsx';
 import MyDevices from '../src/pages/myDevices.jsx';
 import Chat from '../src/pages/Chat.jsx';
 import About from '../src/pages/About.jsx';
+import Report from '../src/pages/Report.jsx';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path='/about' element={<Layout />}>
                 <Route index element={<About />} />
+            </Route>
+            <Route path='/report' element={<Layout />}>
+                <Route index element={<Report />} />
             </Route>
 
           </Routes>
