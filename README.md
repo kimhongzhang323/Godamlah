@@ -45,7 +45,7 @@ As digital threats continue to evolve, businesses need more advanced tools to se
 - **Frontend**: React, Tailwind CSS, Chart.js, Leaflet.js / Mapbox
 - **Backend**: Flask, MongoDB, WebSockets / Polling
 - **AI/ML**: Scikit-learn, Joblib, Pandas
-- **Authentication**: Flask-Login
+- **Authentication**: Flask-Login, JWT, hcaptcha
 - **Data**: NSL-KDD, CIC-IDS-2017 (network intrusion dataset)
 
 ## Installation
