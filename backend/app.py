@@ -1,6 +1,5 @@
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
-<<<<<<< HEAD
 from flask_hcaptcha import hCaptcha
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
@@ -8,18 +7,15 @@ import jwt, datetime, json
 import re
 
 app = Flask(__name__)
-=======
 from LLm.model import model
 from models import db
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///yourdatabase.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
->>>>>>> main
 CORS(app)
 bcrypt = Bcrypt(app)
 
-<<<<<<< HEAD
 # hCaptcha Configuration
 app.config["HCAPTCHA_SITEKEY"] = (
     "496c1d9a-7714-4c70-82be-8cc666046cd0"  # this site key is from micheal's hcaptcha account
@@ -151,13 +147,11 @@ def protected():
         return jsonify({"error": "Token has expired"}), 401
     except jwt.InvalidTokenError:
         return jsonify({"error": "Invalid token"}), 401
-=======
 db.init_app(app)
 
 @app.route("/")
 def index():
     return render_template("index.html")
->>>>>>> main
 
 
 
