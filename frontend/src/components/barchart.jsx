@@ -1,7 +1,7 @@
 // Importing the ResponsiveBar component
 import { ResponsiveBar } from '@nivo/bar';
 // Importing the data
-import { data } from 'frontend/src/lib/constants/securityMetrics.js';
+import { data } from '../lib/constants/securityMetrics.js';
 
 // Example Component for Security Dashboard
 const SecurityDashboardBarChart = () => (

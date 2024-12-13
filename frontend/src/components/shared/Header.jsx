@@ -4,9 +4,6 @@ import { HiOutlineBell, HiOutlineSearch } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
-// Import the profile photo
-import profilePhoto from 'frontend/asset/new-profile-picture-collection-bubu-and-dudu-v0-kvvrhw2mof1d1.png';
-
 const Header = () => {
     const navigate = useNavigate();
 
@@ -23,9 +20,7 @@ const Header = () => {
                     className="text-sm focus:outline-none active:outline-none border border-gray-300 w-[24rem] h-10 pl-11 pr-4 rounded-sm"
                 />
             </div>
-
             <div className="flex items-center gap-2 mr-2">
-                
                 <Popover className="relative">
                     {({ open }) => (
                         <>
@@ -49,7 +44,29 @@ const Header = () => {
                                 <Popover.Panel className="absolute right-0 z-10 mt-2 w-80 bg-white shadow-lg ring-1 ring-black ring-opacity-5 rounded-sm">
                                     <div className="p-4">
                                         <h3 className="text-lg font-medium text-gray-900">Notifications</h3>
-                                        {/* Notifications content */}
+                                        <ul className="mt-2 space-y-2">
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">Your meeting is scheduled for 3 PM</p>
+                                                    <p className="text-xs text-gray-500">5 minutes ago</p>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">You received a message from Alex</p>
+                                                    <p className="text-xs text-gray-500">15 minutes ago</p>
+                                                </div>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="flex-shrink-0 h-2 w-2 rounded-full bg-blue-500 mt-1.5 mr-3"></span>
+                                                <div className="flex-1">
+                                                    <p className="text-sm text-gray-700">System update completed</p>
+                                                    <p className="text-xs text-gray-500">1 hour ago</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </Popover.Panel>
                             </Transition>
@@ -58,11 +75,9 @@ const Header = () => {
                 </Popover>
                 <Menu as="div" className="relative">
                     <div>
-                        <Menu.Button className="ml-2 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-neutral-400">
-                            <span className="sr-only">Open user menu</span>
+                        <Menu.Button className="flex items-center">
                             <div
-                                className="h-10 w-10 rounded-full bg-cover bg-no-repeat bg-center"
-                                style={{ backgroundImage: `url(${profilePhoto})` }}
+                                className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"
                             >
                                 <span className="sr-only">User Profile</span>
                             </div>
@@ -83,11 +98,11 @@ const Header = () => {
                                     <div
                                         onClick={() => navigate('/profile')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
-                                        Your Profile
+                                        Profile
                                     </div>
                                 )}
                             </Menu.Item>
@@ -96,8 +111,8 @@ const Header = () => {
                                     <div
                                         onClick={() => navigate('/settings')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
                                         Settings
@@ -107,12 +122,13 @@ const Header = () => {
                             <Menu.Item>
                                 {({ active }) => (
                                     <div
+                                        onClick={() => navigate('/logout')}
                                         className={classNames(
-                                            active && 'bg-gray-100',
-                                            'active:bg-gray-200 rounded-sm px-4 py-2 text-gray-700 cursor-pointer focus:bg-gray-200'
+                                            active ? 'bg-gray-100' : '',
+                                            'block px-4 py-2 text-sm text-gray-700 cursor-pointer'
                                         )}
                                     >
-                                        Sign out
+                                        Logout
                                     </div>
                                 )}
                             </Menu.Item>
@@ -125,3 +141,4 @@ const Header = () => {
 };
 
 export default Header;
+        
